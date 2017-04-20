@@ -31,7 +31,7 @@ app.use(express.static(__dirname + '/public'))
 var apiGeneral = require('./app/api/general.api')(app, express);
 var apiUsers = require('./app/api/users.api')(app, express);
 app.use('/api', apiGeneral);
-app.use('/api', apiUsers);
+app.use('/api/users', apiUsers);
 
 // this below allows to show the RESTful API requests' tree by typing localhost:port/pathfinder
 app.use('/pathfinder', function (req, res, next) {
