@@ -18,16 +18,6 @@ var userSchema = new mongoose.Schema({
     postal_code: String,
     country: String
   },
-  professionnelInfo: {
-    name: String,
-    website: String,
-    address: String,
-    rubrique: {
-      type: Schema.ObjectId,
-      ref: 'Rubrique'
-    },
-    activity: String
-  },
   deleted: {
     type: Boolean,
     default: false// true means it has been deleted
