@@ -1,0 +1,47 @@
+{
+  "name": "phaino",
+  "version": "0.1.0",
+  "description": "web site users' management",
+  "main": "server.js",
+  "scripts": {
+    "start": "grunt"
+  },
+  "author": "Zakaria",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^1.5.2",
+    "body-parser": "^1.15.0",
+    "colors": "^1.1.2",
+    "connect-multiparty": "^2.0.0",
+    "cors": "^2.7.1",
+    "express": "^4.13.4",
+    "express-session": "^1.14.2",
+    "gridfs-stream": "^1.1.1",
+    "jwt-simple": "^0.4.1",
+    "lodash": "^4.17.4",
+    "lodash-compat": "^3.10.2",
+    "moment": "^2.12.0",
+    "mongoose": "^4.4.12",
+    "mongoose-deep-populate": "^3.0.0",
+    "morgan": "^1.7.0",
+    "node-restful": "^0.2.5",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "request": "^2.69.0"
+  },
+  "devDependencies": {
+    "bower": "^1.8.0",
+    "grunt": "^1.0.1",
+    "grunt-concurrent": "^2.3.1",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-nodeunit": "^1.0.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-node-inspector": "^0.4.2",
+    "grunt-nodemon": "^0.4.2",
+    "jasmine-node": "^1.14.5",
+    "nodemon": "^1.11.0",
+    "pathfinder-ui": "^1.0.3"
+  }
+}
