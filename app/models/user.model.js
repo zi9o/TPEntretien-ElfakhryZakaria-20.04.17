@@ -10,11 +10,14 @@ var userSchema = new mongoose.Schema({
   email: {type: String, lowercase: true},
   displayName: String,
   picture: {
-    type: String,
-    default: 'img/img_user.png'
+    url: {type:String, default: 'img/img_user.png'},
+    caption: String,
+    thumbUrl: String,
+    contentType: String
   },
-  localite: {
+  locality: {
     address: String,
+    city: String,
     postal_code: String,
     country: String
   },
@@ -31,27 +34,27 @@ var userSchema = new mongoose.Schema({
   }
 });
 
-
-userSchema.pre("save", function (next) {
-  var self = this;
-
-  this.constructor.findOne({email: this.email}, 'email', function (err, user) {
-    if (err) {
-      console.warn('err', err);
-      return next(err);
-    }
-    if (user) {
-      if (self.id === user.id) {
-        return next();
-      }
-      console.warn('user ', user);
-      self.invalidate("email", "L'email est unique");
-      return next(new Error("L'email que vous associez à ce compte existe déjà"));
-    } else {
-      next();
-    }
-  });
-});
+//
+// userSchema.pre("save", function (next) {
+//   var self = this;
+//
+//   this.constructor.findOne({email: this.email}, 'email', function (err, user) {
+//     if (err) {
+//       console.warn('err', err);
+//       return next(err);
+//     }
+//     if (user) {
+//       if (self.id === user.id) {
+//         return next();
+//       }
+//       console.warn('user ', user);
+//       self.invalidate("email", "L'email est unique");
+//       return next(new Error("L'email que vous associez à ce compte existe déjà"));
+//     } else {
+//       next();
+//     }
+//   });
+// });
 
 
 module.exports = mongoose.model('User', userSchema);

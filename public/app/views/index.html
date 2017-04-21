@@ -1,11 +1,186 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<nav></nav>
+<html ng-app="phainoUserApp" lang="fr-fr">
 
-</body>
-</html>
+<head>
+    <base href="/"/>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+    <!--Title Project -->
+    <title> Test Project</title>
+    <link rel="shortcut icon" type="image/png" href="img/logo.png"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- jQuery -->
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+
+    <!-- Template CSS -->
+    <link href="assets/styles/datatables.min.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/styles/plugin/datatables.bootstrap.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="assets/styles/components.css">
+    <link rel="stylesheet" href="assets/styles/plugins.css">
+    <link href="assets/styles/layout.min.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/styles/themes/default.min.css" rel="stylesheet" type="text/css" id="style_color"/>
+    <link rel="stylesheet" href="assets/styles/fileinput.css">
+
+    <link rel="stylesheet" href="assets/styles/profile.css">
+    <link rel="stylesheet" href="assets/styles/customed.css">
+
+    <!--Font Awesome-->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+    <link rel="stylesheet" href="assets/fonts/font-awesome/css/font-awesome.min.css">
+
+    <!--bootstrap-->
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+    <!-- loading-bar -->
+    <link rel="stylesheet" href="assets/styles/loading-bar/loading-bar.css">
+
+    <!-- Angular css-->
+    <link href="lib/angular-toastr/dist/angular-toastr.css" rel="stylesheet">
+    <link rel="stylesheet" href="lib/ladda/dist/ladda-themeless.min.css">
+
+    <!-- BEGIN DYMANICLY LOADED CSS FILES -->
+    <!--<link id="ng_load_plugins_before"/>-->
+    <!-- END DYMANICLY LOADED CSS FILES -->
+
+
+    <!--angularjs-->
+    <!-- Third-party Libraries -->
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/angular-animate/angular-animate.min.js"></script>
+    <script src="lib/angular-messages/angular-messages.min.js"></script>
+    <script src="lib/angular-resource/angular-resource.min.js"></script>
+    <script src="lib/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="lib/angular-aria/angular-aria.min.js"></script>
+    <script src="lib/angular-touch/angular-touch.min.js"></script>
+    <script src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="lib/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <script src="lib/ng-file-upload/ng-file-upload.min.js"></script>
+    <script src="lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="lib/angularUtils-pagination/dirPagination.js"></script>
+    <script src="lib/angular-i18n/angular-locale_fr-fr.js"></script>
+    <script src="lib/angular-translate/angular-translate.js"></script>
+
+    <!-- loading-bar  -->
+    <script src="lib/angular-loading-bar/build/loading-bar.min.js"></script>
+
+    <!-- loading-buttons  -->
+    <script src="lib/ladda/dist/spin.min.js"></script>
+    <script src="lib/ladda/dist/ladda.min.js"></script>
+    <script src="lib/angular-ladda/dist/angular-ladda.min.js"></script>
+
+    <!--Angular App Js-->
+    <script src="app/main.js"></script>
+    <!-- bootstrap -->
+    <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Angular Services-->
+    <script src="app/services/siteUrls.service.js"></script>
+
+    <!-- Angular routes -->
+    <script src="app/routes/general.route.js"></script>
+    <script src="app/routes/users.route.js"></script>
+
+    <!-- Angular Controllers-->
+    <script src="app/controllers/main.controller.js"></script>
+    <script src="app/controllers/home.controller.js"></script>
+    <script src="app/controllers/users/create.user.controller.js"></script>
+
+</head>
+
+<body class="page-container-bg-solid page-boxed"  ng-controller="MainController as main" ng-cloak>
+<!--Loading Bar -->
+<div id="loading-bar-container"></div>
+<!-- BEGIN HEADER -->
+<div class="page-header">
+    <!-- BEGIN HEADER TOP -->
+    <div class="page-header-top">
+        <div class="container">
+
+            <!-- BEGIN LOGO -->
+            <div class="page-logo">
+                <a ui-sref="home">
+                    <img src="img/logo.png" alt="logo" >
+                </a>
+            </div>
+            <!-- END LOGO -->
+            <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+            <a href="javascript:;" class="menu-toggler"></a>
+            <!-- END RESPONSIVE MENU TOGGLER -->
+        </div>
+    </div>
+    <!-- END HEADER TOP -->
+    <!-- BEGIN HEADER MENU -->
+    <div class="page-header-menu">
+        <div class="container">
+            <!-- BEGIN HEADER SEARCH BOX -->
+            <!-- END HEADER SEARCH BOX -->
+            <!-- BEGIN MEGA MENU -->
+            <div class="hor-menu  ">
+                <ul class="nav navbar-nav">
+                    <li class="menu-dropdown classic-menu-dropdown ">
+                        <a ui-sref="home"> {{'Home' | translate}}
+                            <span class="arrow"></span>
+                        </a>
+                    </li>
+                    <li class="menu-dropdown classic-menu-dropdown ">
+                        <a ng-click="changeLanguage('en')"> {{'BUTTON_LANG_EN' | translate}}
+                            <span class="arrow"></span>
+                        </a>
+                    </li>
+                    <li class="menu-dropdown classic-menu-dropdown ">
+                        <a ng-click="changeLanguage('fr')"> {{'BUTTON_LANG_FR' | translate}}
+                            <span class="arrow"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- END MEGA MENU -->
+        </div>
+    </div>
+    <!-- END HEADER MENU -->
+</div>
+<!-- END HEADER -->
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+    <!-- BEGIN CONTENT -->
+    <div class="page-content-wrapper fade-in-up" ui-view>
+    </div>
+    <!-- END CONTENT -->
+</div>
+<!-- END CONTAINER -->
+<!-- BEGIN PRE-FOOTER -->
+<div class="page-prefooter">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12 footer-block">
+                <h2>About</h2>
+                <p> Zakaria EL FAKHRY, Software Engineer, FullStack Developer. Always a beginner ...</p>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs12 footer-block">
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12 footer-block">
+                <h2>Contacts</h2>
+                <address class="margin-bottom-40"> Phone: +(212) 660 14 58 78
+                    <br> Email:
+                    <a href="mailto:zakariaelfakhry@gmail.com">zakariaelfakhry@gmail.com</a>
+                    <br> Repositories:
+                    <a href="https://github.com/zi9o">github.com/zi9o</a>
+                </address>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END PRE-FOOTER -->
+<!-- BEGIN INNER FOOTER -->
+<div class="page-footer">
+    <div class="container"> 2017 &copy; Phaino. All Rights Reserved.</div>
+</div>
+<div class="scroll-to-top">
+    <i class="icon-arrow-up"></i>
+</div>
+<!-- END INNER FOOTER -->
+<!-- END FOOTER -->

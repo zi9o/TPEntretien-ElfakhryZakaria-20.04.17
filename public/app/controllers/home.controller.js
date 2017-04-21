@@ -5,6 +5,8 @@ angular.module('phainoUserApp')
   .controller('HomeController', ['$http', '$rootScope', '$scope', 'siteUrl', '$state', 'toastr', '$timeout',
     function ($http, $rootScope, $scope, siteUrl, $state, toastr, $timeout) {
 
+      $scope.currentPage = 1;
+      $scope.pageSize = 5;
       /*
        * first action on view load
        */
@@ -34,5 +36,7 @@ angular.module('phainoUserApp')
        | Scoped functions
        |--------------------------------------------------------------------------
        */
-
+      $scope.refreshUser = function () {
+        initUsers();
+      }
     }]);

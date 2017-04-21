@@ -138,10 +138,11 @@ module.exports = function (app, express) {
     delete req.files.file;
     var user = new User(
       {
-        localite: {
-          address: req.body.address,
-          postal_code: req.body.postal_code,
-          country: req.body.country
+        locality: {
+          address: req.body.locality.address,
+          city: req.body.locality.city,
+          postal_code: req.body.locality.postal_code,
+          country: req.body.locality.country
         },
         firstName: req.body.firstName,
         lastName: req.body.lastName,
@@ -154,7 +155,7 @@ module.exports = function (app, express) {
       if (err) {
         res.status(500).json({message: 'failed to store files'})
       } else {
-        user.picture = result; // The result of stored pictures' array
+        user.picture = result[0]; // The result of stored pictures' array
         user.save(function (err) {
           if (err) {
             console.log(err)
