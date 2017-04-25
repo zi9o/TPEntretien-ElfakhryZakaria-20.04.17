@@ -73,74 +73,14 @@ angular.module('phainoUserApp')
    |--------------------------------------------------------------------------
    */
   .config(function ($translateProvider) {
-    $translateProvider.translations('en', {
-      LANG: "Language",
-      PAGE_404: "Not found",
-      Home:'Home',
-      USER_LIST:"List of users",
-      SETTINGS:"Settings",
-      SEARCH:"Search",
-      ADD_NEW:"Add New",
-      REFRESH:"Refresh",
-      TOOLS:"Tools",
-      ADD: "Add",
-      EMAIL: "Email",
-      CREATE: "Create",
-      SAVE:"Save",
-      FULLNAME: "Full name",
-      FIRSTNAME: "First name",
-      LASTNAME: "Last name",
-      ADDRESS:"Address",
-      CITY:"City",
-      COUNTRY:"Country",
-      PICTURE:"Picture",
-      SELECT_PICTURE:"Select an image",
-      CHANGE:"Change",
-      REMOVE:"Remove",
-      FIRSTNAME_REQUIRED:"First name is required",
-      LASTNAME_REQUIRED:"Last name is required",
-      ADDRESS_REQUIRED:"Address is required",
-      CITY_REQUIRED:"City is required",
-      COUNTRY_REQUIRED:"Country is required",
-      PICTURE_REQUIRED:"Picture is required",
-      BUTTON_LANG_EN: 'english',
-      BUTTON_LANG_FR: 'french'
+    $translateProvider.useStaticFilesLoader({
+      prefix: 'assets/languages/',
+      suffix: '.json'
     });
-    $translateProvider.translations('fr', {
-      LANG: "Langage",
-      PAGE_404: "Page introuvable",
-      Home:'Accueil',
-      USER_LIST:"Liste des utilisateurs",
-      SETTINGS:"Paramètres",
-      SEARCH:"Chercher",
-      ADD_NEW:"Ajouter Nouveau",
-      REFRESH:"Actualiser",
-      TOOLS:"Outils",
-      ADD: "Ajouter",
-      EMAIL: "Email",
-      CREATE: "Créer",
-      SAVE:"Sauvegarder",
-      FULLNAME: "Nom complet",
-      FIRSTNAME: "Prénom",
-      LASTNAME: "Nom",
-      ADDRESS:"Adresse",
-      CITY:"Ville",
-      COUNTRY:"Pays",
-      PICTURE:"Photo",
-      SELECT_PICTURE:"Sélectionner une image",
-      CHANGE:"Changer",
-      REMOVE:"Enlever",
-      FIRSTNAME_REQUIRED:"Le prénom est obligatoire.",
-      LASTNAME_REQUIRED:"Le nom est obligatoire.",
-      ADDRESS_REQUIRED:"L'adresse est obligatoire.",
-      CITY_REQUIRED:"La ville est obligatoire.",
-      COUNTRY_REQUIRED:"Le pays est obligatoire.",
-      PICTURE_REQUIRED:"La photo est obligatoire",
-      BUTTON_LANG_EN: 'anglais',
-      BUTTON_LANG_FR: 'français'
-    });
-    $translateProvider.preferredLanguage('en');
-  });
+
+    $translateProvider.preferredLanguage("en");
+    $translateProvider.fallbackLanguage("en");
+  })
 
 
 /*

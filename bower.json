@@ -29,6 +29,7 @@
     "angular-bootstrap": "^2.4.0"
   },
   "devDependencies": {
-    "angular-translate": "^2.15.1"
+    "angular-translate": "^2.15.1",
+    "angular-translate-loader-static-files": "^2.15.1"
   }
 }
